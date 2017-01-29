@@ -1,0 +1,88 @@
+eeschema (2013-07-07 BZR 4022)-stable  >> Creation date: 1/22/2017 9:58:14 PM
+#Cmp ( order = Reference )
+| C1         0.1uF       
+| C2         10nF        
+| C3         0.1uF       
+| C4         2.2nF       
+| C5         .22uF       
+| C6         4.7uF       
+| D1         LED         
+| D2         LED         
+| D3         LED         
+| D4         LED         
+| D5         LED         
+| JP1        JUMPER      
+| JP2        JUMPER      
+| JP3        JUMPER      
+| JP4        JUMPER      
+| P1         CONN_4      
+| P2         CONN_4      
+| Q1         MOSFET_N    
+| Q2         MOSFET_N    
+| R1         4.7k        
+| R2         4.7k        
+| R3         820         
+| R4         820         
+| R5         820         
+| R6         820         
+| R7         820         
+| R8         1k          
+| R9         1k          
+| R10        1k          
+| R11        1k          
+| R12        200         
+| R13        5.6k        
+| R14        200         
+| R15        5.6k        
+| SHIELD1    ARDUINO_SHIELD
+| SW1        SW_PUSH     
+| U0         ITG3200     
+| U1         ADXL345     
+| U2         XBEE        
+| U3         HMC5883     
+#End Cmp
+
+#Cmp ( order = Value )
+| 2.2nF        C4        
+| 10nF         C2        
+| 0.1uF        C1        
+| 0.1uF        C3        
+| 4.7uF        C6        
+| .22uF        C5        
+| LED          D1        
+| LED          D2        
+| LED          D3        
+| LED          D4        
+| LED          D5        
+| JUMPER       JP1       
+| JUMPER       JP2       
+| JUMPER       JP3       
+| JUMPER       JP4       
+| CONN_4       P1        
+| CONN_4       P2        
+| MOSFET_N     Q1        
+| MOSFET_N     Q2        
+| 200          R12       
+| 200          R14       
+| 820          R3        
+| 820          R4        
+| 820          R5        
+| 820          R6        
+| 820          R7        
+| 1k           R8        
+| 1k           R9        
+| 1k           R10       
+| 1k           R11       
+| 4.7k         R1        
+| 4.7k         R2        
+| 5.6k         R13       
+| 5.6k         R15       
+| ARDUINO_SHIELD SHIELD1   
+| SW_PUSH      SW1       
+| HMC5883      U3        
+| ADXL345      U1        
+| ITG3200      U0        
+| XBEE         U2        
+#End Cmp
+
+#End List

@@ -1,0 +1,262 @@
+Cmp-Mod V01 Created by PcbNew date = 10/5/2014 8:01:02 PM
+
+BeginCmp
+TimeStamp = /537FC3D7;
+Reference = C1;
+ValeurCmp = 0.1uF;
+IdModule  = SM0603_Capa;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC271;
+Reference = C2;
+ValeurCmp = 10nF;
+IdModule  = SM0603_Capa;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC258;
+Reference = C3;
+ValeurCmp = 0.1uF;
+IdModule  = SM0603_Capa;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC248;
+Reference = C4;
+ValeurCmp = 2.2nF;
+IdModule  = SM0603_Capa;
+EndCmp
+
+BeginCmp
+TimeStamp = /54023877;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54023871;
+Reference = D2;
+ValeurCmp = LED;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54023864;
+Reference = D3;
+ValeurCmp = LED;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /54023883;
+Reference = D4;
+ValeurCmp = LED;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /5402387D;
+Reference = D5;
+ValeurCmp = LED;
+IdModule  = SM0603;
+EndCmp
+
+BeginCmp
+TimeStamp = /5414842E;
+Reference = JP1;
+ValeurCmp = JUMPER;
+IdModule  = connect-PAD-02;
+EndCmp
+
+BeginCmp
+TimeStamp = /54148443;
+Reference = JP2;
+ValeurCmp = JUMPER;
+IdModule  = connect-PAD-02;
+EndCmp
+
+BeginCmp
+TimeStamp = /54148449;
+Reference = JP3;
+ValeurCmp = JUMPER;
+IdModule  = connect-PAD-02;
+EndCmp
+
+BeginCmp
+TimeStamp = /5414844F;
+Reference = JP4;
+ValeurCmp = JUMPER;
+IdModule  = connect-PAD-02;
+EndCmp
+
+BeginCmp
+TimeStamp = /54149342;
+Reference = P1;
+ValeurCmp = CONN_4;
+IdModule  = PIN_ARRAY_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /541E30DB;
+Reference = P2;
+ValeurCmp = CONN_4;
+IdModule  = TERM_STRIP_4x1;
+EndCmp
+
+BeginCmp
+TimeStamp = /541474F4;
+Reference = Q1;
+ValeurCmp = MOSFET_N;
+IdModule  = SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /54147501;
+Reference = Q2;
+ValeurCmp = MOSFET_N;
+IdModule  = SOT23;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC22A;
+Reference = R1;
+ValeurCmp = 4.7k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC239;
+Reference = R2;
+ValeurCmp = 4.7k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /5402396D;
+Reference = R3;
+ValeurCmp = 150;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /5402399F;
+Reference = R4;
+ValeurCmp = 150;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /540239A6;
+Reference = R5;
+ValeurCmp = 150;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /540239B3;
+Reference = R6;
+ValeurCmp = 150;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /540239BA;
+Reference = R7;
+ValeurCmp = 150;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /54147703;
+Reference = R8;
+ValeurCmp = 1k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /5414770A;
+Reference = R9;
+ValeurCmp = 1k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /54147712;
+Reference = R10;
+ValeurCmp = 1k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /54147718;
+Reference = R11;
+ValeurCmp = 1k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /5418E1E6;
+Reference = R12;
+ValeurCmp = 200;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /5418E1DF;
+Reference = R13;
+ValeurCmp = 5.6k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /541E30F5;
+Reference = R14;
+ValeurCmp = 200;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /541E30FB;
+Reference = R15;
+ValeurCmp = 5.6k;
+IdModule  = SM0603_Resistor;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC13A;
+Reference = SHIELD1;
+ValeurCmp = ARDUINO_SHIELD;
+IdModule  = ARDUINO_SHIELD_WO_MOUNTING_HOLES;
+EndCmp
+
+BeginCmp
+TimeStamp = /541463C7;
+Reference = SW1;
+ValeurCmp = SW_PUSH;
+IdModule  = SMD_PUSHBUTTON_TOP-PTS525;
+EndCmp
+
+BeginCmp
+TimeStamp = /537FC15B;
+Reference = U0;
+ValeurCmp = ITG3200;
+IdModule  = ITG3200;
+EndCmp
+
+BeginCmp
+TimeStamp = /5380329A;
+Reference = U1;
+ValeurCmp = ADXL345;
+IdModule  = ADXL345;
+EndCmp
+
+BeginCmp
+TimeStamp = /538038E3;
+Reference = U2;
+ValeurCmp = XBEE;
+IdModule  = xbee_r1-XBEE;
+EndCmp
+
+EndListe
