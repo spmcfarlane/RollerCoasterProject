@@ -324,3 +324,4 @@ void ITG3200::readmem(uint8_t _addr, uint8_t _nbytes, uint8_t __buff[]) {
   Wire.endTransmission(); // end transmission
 }
 
+

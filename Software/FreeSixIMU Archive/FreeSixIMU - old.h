@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "FIMU_ADXL345.h"
 #define FIMU_ACC_ADDR ADXL345_ADDR_ALT_LOW // SDO connected to GND
 #include "FIMU_ITG3200.h"
-#include "IST8310.h"
+#include "HMC5883.h"
 
 
 #ifndef FreeSixIMU_h
@@ -62,8 +62,8 @@ class FreeSixIMU
     
     
 	ADXL345 acc;
-   ITG3200 gyro;
-   IST8310 magn; 
+  ITG3200 gyro;
+  HMC5883 magn; 
     int* raw_acc, raw_gyro, raw_magn;
     
   private:
@@ -83,4 +83,3 @@ class FreeSixIMU
 float invSqrt(float number);
 
 #endif // FreeSixIMU_h
-

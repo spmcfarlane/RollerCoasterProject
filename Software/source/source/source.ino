@@ -19,12 +19,7 @@
 SoftwareSerial XBee(2,3);
 
 
-float q[9]; //hold q values
-int rawq[8];
-float mag_readings[3];
-int magx;
-int magy;
-int magz;
+float q[5]; //hold q values
 
 // Set the FreeIMU object
 FreeSixIMU my3IMU = FreeSixIMU();
@@ -34,19 +29,27 @@ void setup() {
  Wire.begin();
 
  delay(5);
+ Serial.print("Initializing");
  
  my3IMU.init();
-
  
+ Serial.print("Initialization Complete");
 }
 
 
 void loop() { 
- //my3IMU.getRawValues(rawq);
-  //magn.getRaw(&magx,&magy,&magz);
-  my3IMU.getQ(q);
-
- serialPrintFloatArr(q, 4);
+ my3IMU.getValues(q);
+ Serial.print(q[0], DEC);
+ Serial.print(" ");
+ Serial.print(q[1], DEC);
+ Serial.print(" ");
+ Serial.print(q[2], DEC);
+ Serial.print(" ");
+ Serial.print(q[3], DEC);
+ Serial.print(" ");
+ Serial.print(q[4], DEC);
+ Serial.print(" ");
+ Serial.print(q[5], DEC);
  Serial.println(""); //line break
 
  delay(10);

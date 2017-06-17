@@ -10,3 +10,4 @@ void writeVar(void * val, uint8_t type_bytes);
 
 
 #endif // CommunitationUtils_h
+

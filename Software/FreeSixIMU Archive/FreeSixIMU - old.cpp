@@ -19,8 +19,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-
-Modified for use with an IST8310 by Sean McFarlane Â© 2017
 */
 
 #include <inttypes.h>
@@ -33,7 +31,7 @@ Modified for use with an IST8310 by Sean McFarlane Â© 2017
 FreeSixIMU::FreeSixIMU() {
 acc = ADXL345();
 gyro = ITG3200();
-magn = IST8310();
+//magn = HMC58X3();
 
 // initialize quaternion
 q0 = 1.0f;
@@ -51,22 +49,22 @@ now = 0;
 }
 
 void FreeSixIMU::init() {
-   init(FIMU_ACC_ADDR, FIMU_ITG3200_DEF_ADDR, IST8310_ADDR);
+init(FIMU_ACC_ADDR, FIMU_ITG3200_DEF_ADDR, false);
 }
 
 void FreeSixIMU::init(bool fastmode) {
-   init(FIMU_ACC_ADDR, FIMU_ITG3200_DEF_ADDR, fastmode);
+init(FIMU_ACC_ADDR, FIMU_ITG3200_DEF_ADDR, fastmode);
 }
 
 void FreeSixIMU::init(int acc_addr, int gyro_addr, bool fastmode) {
-   delay(5);
+delay(5);
 
 // disable internal pullups of the ATMEGA which Wire enable by default
 #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega328P__)
 // deactivate internal pull-ups for twi
 // as per note from atmega8 manual pg167
-   cbi(PORTC, 4);
-   cbi(PORTC, 5);
+cbi(PORTC, 4);
+cbi(PORTC, 5);
 #else
 // deactivate internal pull-ups for twi
 // as per note from atmega128 manual pg204
@@ -75,19 +73,19 @@ cbi(PORTD, 1);
 #endif
 
 if(fastmode) { // switch to 400KHz I2C - eheheh
-   TWBR = ((16000000L / 400000L) - 16) / 2; // see twi_init in Wire/utility/twi.c
+TWBR = ((16000000L / 400000L) - 16) / 2; // see twi_init in Wire/utility/twi.c
 // TODO: make the above usable also for 8MHz arduinos..
 }
 
 // init ADXL345
-   acc.init(acc_addr);
+acc.init(acc_addr);
 
 
 // init ITG3200
-   gyro.init(gyro_addr);
-   delay(1000);
+gyro.init(gyro_addr);
+delay(1000);
 // calibrate the ITG3200
-   gyro.zeroCalibrate(128,5);
+gyro.zeroCalibrate(128,5);
 
 // init HMC5843
 //magn.init(false); // Don't set mode yet, we'll do that later on.
@@ -102,21 +100,23 @@ if(fastmode) { // switch to 400KHz I2C - eheheh
 
 
 void FreeSixIMU::getRawValues(int * raw_values) {
-   acc.readAccel(&raw_values[0], &raw_values[1], &raw_values[2]);
-   gyro.readGyroRaw(&raw_values[3], &raw_values[4], &raw_values[5]);
-   magn.getRaw(&raw_values[6], &raw_values[7], &raw_values[8]);
+acc.readAccel(&raw_values[0], &raw_values[1], &raw_values[2]);
+gyro.readGyroRaw(&raw_values[3], &raw_values[4], &raw_values[5]);
+//magn.getValues(&raw_values[6], &raw_values[7], &raw_values[8]);
 
 }
 
 
 void FreeSixIMU::getValues(float * values) { 
-   int accval[3];
-   acc.readAccel(&accval[0], &accval[1], &accval[2]);
-   values[0] = ((float) accval[0]);
-   values[1] = ((float) accval[1]);
-   values[2] = ((float) accval[2]);
-   gyro.readGyro(&values[3]);
-   magn.getISTFloatValues(&values[6], &values[7], &values[8]);
+int accval[3];
+acc.readAccel(&accval[0], &accval[1], &accval[2]);
+values[0] = ((float) accval[0]);
+values[1] = ((float) accval[1]);
+values[2] = ((float) accval[2]);
+
+gyro.readGyro(&values[3]);
+
+//magn.getValues(&values[6]);
 }
 
 
@@ -146,6 +146,7 @@ q2q2 = q2 * q2;
 q2q3 = q2 * q3;
 q3q3 = q3 * q3;
 
+
 /*
 // Use magnetometer measurement only when valid (avoids NaN in magnetometer normalisation)
 if((mx != 0.0f) && (my != 0.0f) && (mz != 0.0f)) {
@@ -173,7 +174,9 @@ halfwz = bx * (q0q2 + q1q3) + bz * (0.5f - q1q1 - q2q2);
 halfex = (my * halfwz - mz * halfwy);
 halfey = (mz * halfwx - mx * halfwz);
 halfez = (mx * halfwy - my * halfwx);
+}
 */
+
 // Compute feedback only if accelerometer measurement valid (avoids NaN in accelerometer normalisation)
 if((ax != 0.0f) && (ay != 0.0f) && (az != 0.0f)) {
 float halfvx, halfvy, halfvz;
@@ -193,7 +196,6 @@ halfvz = q0q0 - 0.5f + q3q3;
 halfex += (ay * halfvz - az * halfvy);
 halfey += (az * halfvx - ax * halfvz);
 halfez += (ax * halfvy - ay * halfvx);
-
 }
 
 // Apply feedback only when valid data has been gathered from the accelerometer or magnetometer
@@ -328,4 +330,3 @@ y = * ( float * ) &i;
 y = y * ( f - ( x * y * y ) );
 return y;
 }
-

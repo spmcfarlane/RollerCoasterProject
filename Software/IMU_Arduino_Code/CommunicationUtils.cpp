@@ -39,3 +39,4 @@ void writeVar(void * val, uint8_t type_bytes) {
     Serial.write(addr[i]);
   }
 }
+
