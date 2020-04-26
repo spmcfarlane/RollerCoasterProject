@@ -41,7 +41,12 @@ void loop() {
   Serial.println(magz, DEC);
   delay(10);
   */
+ /*
 
+ TEST COMMIT 
+
+ */
+ 
   Wire.beginTransmission(IST8310_ADDR);
   Wire.write(IST8310_R_CTRL1);
   Wire.write(0x01);
