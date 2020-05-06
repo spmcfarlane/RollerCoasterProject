@@ -15,6 +15,7 @@ int magx;
 int magy;
 int magz;
 int x1,x2,y1,y2,z1,z2;
+long xtotal, ytotal, ztotal;
 char magID;
 
 void setup() {
@@ -58,19 +59,21 @@ void loop() {
   Wire.beginTransmission(IST8310_ADDR);
   Wire.requestFrom(IST8310_ADDR,6);
   Serial.print(Wire.available());
+  Serial.println();
   x1 = Wire.read();
   x2 = Wire.read();
   y1 = Wire.read();
   y2 = Wire.read();
   z1 = Wire.read();
   z2 = Wire.read();
+  xtotal = (x2 << 8);
+  xtotal = xtotal | x1;
+  ytotal = (y2<<8) | y1;
+  ztotal = (z2<<8) | z1;
   Wire.endTransmission();
-  Serial.println(x1);
-  Serial.println(x2);
-  Serial.println(y1);
-  Serial.println(y2);
-  Serial.println(z1);
-  Serial.println(z2);
+  Serial.println(xtotal);
+  Serial.println(ytotal);
+  Serial.println(ztotal);
   delay(100);
 
 }

@@ -123,10 +123,12 @@ void IST8310::getRaw(int *x, int *y, int *z)
    Wire.write(byte(0x03));
    Wire.endTransmission();
    Wire.requestFrom(IST8310_ADDR,6);
-   Serial.print(Wire.available());
-   *x = (Wire.read() << 8) || Wire.read();
-   *y = (Wire.read() << 8) || Wire.read();
-   *z = (Wire.read() << 8) || Wire.read();
+   *x = Wire.read() | (Wire.read()<<8);
+   *y = Wire.read() | (Wire.read()<<8);
+   *z = Wire.read() | (Wire.read()<<8);
+   //*x = (Wire.read() << 8) | Wire.read();
+   //*y = (Wire.read() << 8) | Wire.read();
+   //*z = (Wire.read() << 8) | Wire.read();
    Wire.endTransmission();
 }
    
@@ -145,5 +147,3 @@ void IST8310::getID(char ID)
    Serial.print(ID);
    Wire.endTransmission();
 }
-
-
