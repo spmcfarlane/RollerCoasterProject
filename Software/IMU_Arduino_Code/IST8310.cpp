@@ -126,9 +126,6 @@ void IST8310::getRaw(int *x, int *y, int *z)
    *x = Wire.read() | (Wire.read()<<8);
    *y = Wire.read() | (Wire.read()<<8);
    *z = Wire.read() | (Wire.read()<<8);
-   //*x = (Wire.read() << 8) | Wire.read();
-   //*y = (Wire.read() << 8) | Wire.read();
-   //*z = (Wire.read() << 8) | Wire.read();
    Wire.endTransmission();
 }
    

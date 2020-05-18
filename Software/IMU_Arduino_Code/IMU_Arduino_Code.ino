@@ -38,14 +38,14 @@ void setup() {
  
  my3IMU.init();
 
+ Serial.println("Starting Data");
  
 }
 
 
 void loop() { 
- //my3IMU.getRawValues(rawq);
+  my3IMU.getRawValues(rawq);
   magn.getRaw(&magx,&magy,&magz);
-  //my3IMU.getQ(q);
 
  //serialPrintFloatArr(q, 4);
  Serial.println(magx);
@@ -53,5 +53,4 @@ void loop() {
  Serial.println(magz);
  delay(100); //line break
 
- delay(10);
 }
