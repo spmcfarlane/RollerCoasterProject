@@ -25,6 +25,7 @@ float mag_readings[3];
 int magx;
 int magy;
 int magz;
+IST8310 magn = IST8310();
 
 // Set the FreeIMU object
 FreeSixIMU my3IMU = FreeSixIMU();
@@ -37,17 +38,19 @@ void setup() {
  
  my3IMU.init();
 
+ Serial.println("Starting Data");
  
 }
 
 
 void loop() { 
- //my3IMU.getRawValues(rawq);
-  //magn.getRaw(&magx,&magy,&magz);
-  my3IMU.getQ(q);
+  my3IMU.getRawValues(rawq);
+  magn.getRaw(&magx,&magy,&magz);
 
- serialPrintFloatArr(q, 4);
- Serial.println(""); //line break
+ //serialPrintFloatArr(q, 4);
+ Serial.println(magx);
+ Serial.println(magy);
+ Serial.println(magz);
+ delay(100); //line break
 
- delay(10);
 }
